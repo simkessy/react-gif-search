@@ -36,14 +36,12 @@ export default class App extends Component {
     if (this.state.search !== prevProps.search) this.onSearch(this.state.text);
   }
  */
-  dSearch = debounce(text => {
-    this.search(text);
-  }, 1500);
+  delayedSearch = debounce(this.onSearch, 500);
 
   setSearch = e => {
     this.setState({ search: e.target.value });
 
-    this.dSearch(this.state.search);
+    this.delayedSearch(this.state.search);
   };
 
   async onSearch(text) {
