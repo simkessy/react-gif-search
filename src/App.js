@@ -11,6 +11,8 @@ export default class App extends Component {
     results: []
   };
 
+  textInput = React.createRef();
+
   async search(text) {
     const giphy = {
       baseURL: "https://api.giphy.com/v1/gifs/search",
@@ -29,6 +31,7 @@ export default class App extends Component {
   async componentDidMount() {
     // get default search
     this.onSearch(this.state.text);
+    this.textInput.current && this.textInput.current.focus();
   }
 
   /*   componentDidUpdate(prevProps, prevState) {
@@ -63,7 +66,11 @@ export default class App extends Component {
       <main className="app">
         <Header>This is my Gif Search App</Header>
         <nav className="navbar">
-          <SearchBox onSearch={this.setSearch} value={this.state.search} />
+          <SearchBox
+            onSearch={this.setSearch}
+            value={this.state.search}
+            inputRef={this.textInput}
+          />
         </nav>
         <aside className="sidebar">Sidebar Bar</aside>
         <section className="results">
