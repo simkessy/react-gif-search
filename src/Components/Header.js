@@ -7,3 +7,7 @@ export default function Header(props) {
     </header>
   );
 }
+
+Header.defaultProps = {
+  children: "Hiiiii"
+};

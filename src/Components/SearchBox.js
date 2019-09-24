@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import PropTypes from "prop-types";
 
 export default function SearchBox(props) {
   const { placeHolder = "Find Gifs", onSearch, value } = props;
@@ -15,3 +16,13 @@ export default function SearchBox(props) {
     </div>
   );
 }
+
+SearchBox.propTypes = {
+  value: PropTypes.string,
+  onSearch: PropTypes.func,
+  placeholder: PropTypes.string
+};
+
+SearchBox.defaultProps = {
+  value: "Dogs"
+};

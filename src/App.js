@@ -7,7 +7,7 @@ import debounce from "lodash/debounce";
 
 export default class App extends Component {
   state = {
-    search: "Cats",
+    search: "puppies",
     results: []
   };
 
@@ -64,7 +64,7 @@ export default class App extends Component {
   render() {
     return (
       <main className="app">
-        <Header>This is my Gif Search App</Header>
+        <Header>Header</Header>
         <nav className="navbar">
           <SearchBox
             onSearch={this.setSearch}
